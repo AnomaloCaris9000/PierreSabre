@@ -9,6 +9,7 @@ package personnages;
  * Pour manipuler les attributs, un humain propose des 
  * accesseurs en lecture (méthodes get) sur les 
  * attributs nom et argent.
+ * @author joachimazzi
  */
 public class Humain {
 

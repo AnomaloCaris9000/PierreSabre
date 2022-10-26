@@ -31,9 +31,14 @@ public class Ronin extends Humain {
 	}
 	
 	
+	
+	/**
+	 * Une question d'honneur, de reputation et d'argent !
+	 * @param adversaire
+	 */
 	public void provoquer(Yakuza adversaire) {
 		parler("Je t'ai retrouvé, vermine, tu vas payer por ce que tu as fait à ce pauvre marchand !");
-		if (this.getForce()>=adversaire.getReputation()) {
+		if (this.getForce()>=adversaire.getReputation()) { // note TP: un a ici besoin d'un getter de l'attribut reputation de la class Yakuza
 			parler("Je t'ai eu, petit yakuza !");
 			gagnerArgent(adversaire.perdre());
 			honneur++;

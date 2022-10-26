@@ -1,5 +1,12 @@
 package personnages;
 
+
+
+/**
+ * Un commerçant et un humain aime le thé, qui se fait extorquer par des Yakuza et sauver par des Ronin. Une vie bien remplie en somme.
+ * @author joachimazzi
+ *
+ */
 public class Commercant extends Humain {
 
 	public Commercant(String nom, int argent) {
