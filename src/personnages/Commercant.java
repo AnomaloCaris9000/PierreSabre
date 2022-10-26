@@ -11,10 +11,9 @@ public class Commercant extends Humain {
 	
 	/**
 	 * Vide les poches de notre pauvre commerçant, quelle injustice !
-	 * @return
+	 * @return les sous perdu du commerçant
 	 */
 	public int seFaireExtorquer() {
-		argent = 0; // argent a sec
 		/*
 		 * Note TP : pour resoudre le problème de l'acces à l'attribu argent 
 		 * dans les class fille de Humain j'ai supposé que les deux solution était
@@ -27,8 +26,9 @@ public class Commercant extends Humain {
 		 * que nous allions faire heriter la class Humain.
 		 */
 		parler("J'ai tout perdu, le monde est vraiment trop injuste");
-		return 0; // pourquoi int ?
+		return perdreArgent(this.argent);
 	}
+	
 	
 	public void recevoir(int argent) {
 		gagnerArgent(argent);

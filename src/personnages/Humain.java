@@ -73,7 +73,7 @@ public class Humain {
                 "J'ai %d sous en poche. Je vais pouvoir m'offrir une %s à %d sous.", argent, bien, prix
                 )
             );
-            perdreArent(prix);
+            perdreArgent(prix);
         } else {
             parler(
             String.format(
@@ -94,10 +94,12 @@ public class Humain {
 
 
     /**
-     * @param perte ce que l'humain va perdre
+     * @param perte
+     * @return les sous perdu
      */
-    public void perdreArent(int perte) {
+    public int perdreArgent(int perte) {
         argent -= perte;
+        return perte;
     }
 
 
