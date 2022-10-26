@@ -14,7 +14,7 @@ public class Humain {
 
     private String nom;
     private String boissonFav;
-    private int argent;
+    protected int argent; // cet attribut était privé
     
     
     /**
