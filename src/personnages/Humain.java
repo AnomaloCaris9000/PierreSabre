@@ -12,10 +12,16 @@ package personnages;
  * @author joachimazzi
  */
 public class Humain {
+	
+	
+	protected static final int NB_MEMO = 30;
 
+	
     private String nom;
     private String boissonFav;
     protected int argent; // cet attribut était privé
+    protected int nbConnaissance; 
+    protected Humain[] memoire;
     
     
     /**
@@ -27,6 +33,8 @@ public class Humain {
         this.nom = nom;
         this.boissonFav = boissonFav;
         this.argent = argent;
+        this.nbConnaissance = 0;
+        this.memoire = new Humain[NB_MEMO]; 
     }
 
 
@@ -83,12 +91,47 @@ public class Humain {
             );
         }
     }
+    
+    
+    public void faireConnaissance(Humain other) {
+    	this.direBonjour();
+    	other.repondre(this);
+    	this.memoriser(other);
+    }
+    
+
+    protected void memoriser(Humain other) {
+    	memoire[nbConnaissance%NB_MEMO] = other;
+    	nbConnaissance++;
+    }
+    
+    
+    public int getNbConnaissance() {
+    	if(nbConnaissance>NB_MEMO) return NB_MEMO;
+    	else return nbConnaissance;
+    }
+    
+    
+    protected void repondre(Humain other) {
+    	this.direBonjour();
+    	this.memoriser(other);
+    }
+    
+    
+    public void listerConnaissance() {
+    	String rep = "";
+    	for(int i = 0; i < getNbConnaissance(); i++) {
+    		rep += memoire[i].getNom()+((i == getNbConnaissance()-1)?"":", ");
+    	}
+    	this.parler("Je connais beaucoups de monde dont "+rep);
+    	
+    }
 
 
     /**
      * @param gain ce que l'humain va gagner
      */
-    public void gagnerArgent(int gain)
+    protected void gagnerArgent(int gain)
     {
         argent += gain;
     }
@@ -98,7 +141,7 @@ public class Humain {
      * @param perte
      * @return les sous perdu
      */
-    public int perdreArgent(int perte) {
+    protected int perdreArgent(int perte) {
         argent -= perte;
         return perte;
     }

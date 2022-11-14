@@ -41,6 +41,4 @@ public class Commercant extends Humain {
 		gagnerArgent(argent);
 		parler(argent+" sous ! Je te remercie genereux donateur !");
 	}
-	
-
 }

@@ -32,7 +32,6 @@ public class HistoireTP4 {
 	
 	
 	public static void testCommercant() {
-		
 	}
 	
 	
